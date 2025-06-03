@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Webhook Events</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 2rem; }
+        h2 { margin-bottom: 20px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #aaa; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h2>Webhook Event Log</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Author</th>
+                <th>Branch</th>
+                <th>Time (UTC)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in events %}
+            <tr>
+                <td>{{ event.event_type }}</td>
+                <td>{{ event.author }}</td>
+                <td>{{ event.to_branch }}</td>
+                <td>{{ event.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
